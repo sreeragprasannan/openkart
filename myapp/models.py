@@ -6,6 +6,6 @@ class Product(models.Model):
         return self.name
     
     name=models.CharField(max_length=50)
-    price=models.CharField(max_length=50)
+    price=models.FloatField()
     description = models.CharField(max_length=200)
     
