@@ -4,9 +4,13 @@ from django.http import HttpResponse
 
 def index(request):
     
-    return render(request, 'index.html')
+    li = ["Alllen","Sreerag","alwin","justin","allu"]
+    
+    context = {'names':li}
+    
+    return render(request, 'myapp/index.html',context=context)
 
 
 
 def new_one(request):
-    return HttpResponse("new page")
+    return render(request, 'listing/new_one.html')
