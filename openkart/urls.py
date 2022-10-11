@@ -20,6 +20,5 @@ from myapp.views import index,new_one
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('myapp/new',new_one),
     path('myapp/', include('myapp.urls'))
 ]
