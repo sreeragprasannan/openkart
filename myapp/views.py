@@ -17,10 +17,10 @@ def new_one(request):
     return render(request, 'listing/new_one.html')
 
 def products(request):
-    p = Product.objects.all()
-    print(p[1].description)
+    p = Product.objects.get(name='I Phone')
     
-    return HttpResponse(p[1].description)
+    
+    return HttpResponse(p)
 
 def my_place(request):
     
