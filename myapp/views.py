@@ -19,10 +19,16 @@ def new_one(request):
 
 
 def products(request):
-    p = Product.objects.filter(price__gt = 100000)
+    
+    p = Product.objects.all()
     context = {'products': p}
 
     return render(request, 'myapp/products.html', context=context)
+
+def products_detail(request,id):
+    p= Product.objects.get(id=id)
+    context={'p':p}
+    return render(request, 'myapp/product_details.html', context=context)
 
 
 def my_place(request):
