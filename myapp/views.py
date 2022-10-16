@@ -26,9 +26,17 @@ def products(request):
     return render(request, 'myapp/products.html', context=context)
 
 def products_detail(request,id):
-    p= Product.objects.get(id=id)
-    context={'p':p}
+    p = Product.objects.get(id=id)
+    context = {'p':p}
     return render(request, 'myapp/product_details.html', context=context)
+
+def add_products(request):
+    p=Product(name="Samsung Galaxy S22 Ultra",price = 79999.0)
+    p.description = "This is Samsung mobile"
+    
+    p.save()
+    
+    return HttpResponse(p)
 
 
 def my_place(request):
