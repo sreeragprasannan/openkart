@@ -8,4 +8,5 @@ class Product(models.Model):
     name=models.CharField(max_length=50)
     price=models.FloatField()
     description = models.CharField(max_length=200)
+    image=models.ImageField(blank=True,upload_to='images')
     
