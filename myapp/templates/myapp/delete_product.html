@@ -1,0 +1,24 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+
+<h1 class="text-2x1 font-bold m-10">❌Delete Product</h1>
+<form class="w-2/5 shadow-md m-10 p-10" method="POST" enctype="multipart/form-data">
+
+  {% csrf_token %}
+
+  <div class="card card-compact w-96 bg-base-100 shadow-xl">
+    <figure><img src="https://m.media-amazon.com/images/I/61IJBsHm97L._SL1500_.jpg" alt="{{p.name}}" style="width:400px"></figure>
+    <div class="card-body">
+      <h2 class="card-title">{{p.name}}</h2>
+      <p>{{p.description}}</p>
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary">₹{{p.price}}</button>
+      </div>
+    </div>
+  </div>
+  <div class="mb-5">
+    <input class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-400 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700" type="submit" accept="image/" name="Delete Product" value="Delete Product">
+  </div>
+</form>
+
+{% endblock %}

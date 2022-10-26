@@ -49,16 +49,31 @@ def add_products(request,):
 def update_products(request,id):
     p = Product.objects.get(id=id)
     context = {'p': p}
+    
     if request.method == 'POST':
         p.name = request.POST.get('name')
         p.price = request.POST.get('price')
-        p.desc = request.POST.get('desc')
-        p.image = request.FILES['upload']
+        p.description = request.POST.get('desc')
+        try:
+            p.image = request.FILES['upload']
+        except:
+            pass
+        
+        p.save()
+        return redirect('/myapp/products')
+        
+    return render(request, 'myapp/update_product.html', context=context)
+
+def delete_products(request,id):
+    p = Product.objects.get(id=id)
+    context = {'p': p}
+    
+    if request.method == 'POST':
+        p.delete()
         
         return redirect('/myapp/products')
-        p.save()
 
-    return render(request, 'myapp/update_product.html', context=context)
+    return render(request, 'myapp/delete_product.html', context=context)
 
 def my_place(request):
 
