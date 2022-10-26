@@ -1,14 +1,24 @@
 {% extends 'myapp/base.html' %}
 {% block content %}
 
-<div class="card w-50 h-50 center">
+{% comment %} <div class="card w-50 center">
     <img src="https://m.media-amazon.com/images/I/61IJBsHm97L._SL1500_.jpg" alt="{{p.name}}" style="width:400px">
     <h1>{{p.name}}</h1>
     <p class="price">₹ {{p.price}}</p>
     <p>{{p.description}}</p>
     <br>
     <br>
-</div>
+</div> {% endcomment %}
+<div class="card card-compact w-96 bg-base-100 shadow-xl">
+    <figure><img src="https://m.media-amazon.com/images/I/61IJBsHm97L._SL1500_.jpg" alt="{{p.name}}" style="width:400px"></figure>
+    <div class="card-body">
+      <h2 class="card-title">{{p.name}}</h2>
+      <p>{{p.description}}</p>
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary">₹{{p.price}}</button>
+      </div>
+    </div>
+  </div>
 
 {% endblock %}
 

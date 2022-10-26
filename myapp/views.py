@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from myapp.models import Product
 from django.db.models import Q
@@ -19,25 +19,46 @@ def new_one(request):
 
 
 def products(request):
-    
+
     p = Product.objects.all()
     context = {'products': p}
 
     return render(request, 'myapp/products.html', context=context)
 
-def products_detail(request,id):
+
+def products_detail(request, id):
     p = Product.objects.get(id=id)
-    context = {'p':p}
+    context = {'p': p}
     return render(request, 'myapp/product_details.html', context=context)
 
-def add_products(request):
-    p=Product(name="Samsung Galaxy S22 Ultra",price = 79999.0)
-    p.description = "This is Samsung mobile"
-    
-    p.save()
-    
-    return HttpResponse(p)
+# to add poducts using html form
+def add_products(request,):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        price = request.POST.get('price')
+        desc = request.POST.get('desc')
+        image = request.FILES['upload']
 
+        p = Product(name=name, price=price, description=desc, image=image)
+        p.save()
+        
+        return redirect('/myapp/products')
+
+    return render(request, 'myapp/addproducts.html')
+
+def update_products(request,id):
+    p = Product.objects.get(id=id)
+    context = {'p': p}
+    if request.method == 'POST':
+        p.name = request.POST.get('name')
+        p.price = request.POST.get('price')
+        p.desc = request.POST.get('desc')
+        p.image = request.FILES['upload']
+        
+        return redirect('/myapp/products')
+        p.save()
+
+    return render(request, 'myapp/update_product.html', context=context)
 
 def my_place(request):
 
