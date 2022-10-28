@@ -3027,6 +3027,10 @@ html {
   padding-right: 0.438rem;
 }
 
+.btn-wide {
+  width: 16rem;
+}
+
 .btn-block {
   width: 100%;
 }
@@ -3242,6 +3246,10 @@ html {
 
 .mb-3 {
   margin-bottom: 0.75rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .box-border {
@@ -3474,6 +3482,11 @@ html {
 .text-sky-500 {
   --tw-text-opacity: 1;
   color: rgb(14 165 233 / var(--tw-text-opacity));
+}
+
+.text-red-700 {
+  --tw-text-opacity: 1;
+  color: rgb(185 28 28 / var(--tw-text-opacity));
 }
 
 .shadow-md {

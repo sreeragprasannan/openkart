@@ -4,10 +4,10 @@ from django import forms
 
 
 class NewUserForm(UserCreationForm):
-    email = forms.EmailField(required=True,widget=forms.EmailInput(attrs={'class':'input input-bordered input-primary w-full max-w-xs','placeholder':'Enter your email address'}))
-    username = forms.CharField(required=True,widget=forms.TextInput(attrs={'class':'input input-bordered input-primary w-full max-w-xs','placeholder':'Enter your username'}))
-    password1 = forms.CharField(required=True,widget=forms.PasswordInput(attrs={'class':'input input-bordered input-primary w-full max-w-xs',}))
-    p2assword2 = forms.CharField(required=True,widget=forms.TextInput(attrs={'class':'input input-bordered input-primary w-full max-w-xs',}))
+    email = forms.EmailField(required=True,widget=forms.EmailInput(attrs={'class':'input input-ghost input-primary w-full max-w-xl','placeholder':'Enter your email address'}))
+    username = forms.CharField(required=True,widget=forms.TextInput(attrs={'class':'input input-ghost input-primary w-full max-w-xl','placeholder':'Enter your username'}))
+    password1 = forms.CharField(required=True,widget=forms.PasswordInput(attrs={'class':'input input-ghost input-primary w-full max-w-xl',}))
+    password2 = forms.CharField(required=True,widget=forms.TextInput(attrs={'class':'input input-ghost input-primary w-full max-w-xl',}))
     
     class Meta:
         model = User
