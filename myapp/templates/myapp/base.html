@@ -52,7 +52,11 @@
                         </a>
                     </li>
                     <li><a>Settings</a></li>
+                    {% if user.is_authenticated %}
                     <li><a>Logout</a></li>
+                    {% else %}
+                    <li><a>Login</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

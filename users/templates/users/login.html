@@ -1,5 +1,36 @@
 {% extends 'myapp/base.html' %}
 {% block content %}
-{{form}}
+<form method="POST" action="{% url 'users:login' %}" class="items-center">
+    {% csrf_token %}
+    <div class="hero min-h-screen big-base-200">
+        <div class="hero-content flex-col lg:flex-row-reverse">
+            <div class="text-center lg:text-left">
+                <h1 class="text-5xl font-bold">Login!</h1>
+                <p class="py-6">Your are entering to the world of shoping</p>
+            </div>
+            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl">
+                <div class="card-body">
+                    <div class="form control">
+                        <label class="label">
+                            <span class="label-text">Username</span>
+                        </label>
+                        <input type="text" name="username" placeholder="username" class="input input-bordered" id="id_username"/>
+                    </div>
+                    <div class="form control">
+                        <label class="label">
+                            <span class="label-text">Password</span>
+                        </label>
+                        <input type="text" name="password" placeholder="password" class="input input-bordered" id="id_password"/>
+                        <label class="label">
+                            <a href="#" class="link link-primary">Forgot password</a>
+                        </label>
+                    </div>
+                    <button class="btn btn-info" type="submit">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
 
 {% endblock %}
