@@ -12,13 +12,13 @@
             <h2 class="card-title">{{p.name}}</h2>
             <p>{{p.description}}</p>
             <div class="card-actions justify-end">
-                <a href="{% url 'products_details' p.id %}">
+                <a href="{% url 'myapp:products_details' p.id %}">
                     <button class="btn btn-primary">₹ {{p.price}}</button>
                 </a>
             </div>
         </div>
     </div>
-    <!-- <div class="card rounded-lg box-border h-120 w-64 p-4 border-4">
+    {% comment %} <div class="card rounded-lg box-border h-120 w-64 p-4 border-4">
             <h2 style="text-align:center">Product Card</h2>
             <a href="{% url 'products_details' p.id %}">
                 <div class="card">
@@ -30,7 +30,7 @@
                     <br>
                 </div>
             </a>
-        </div> -->
+        </div> {% endcomment %}
     {% endfor %}
 </div>
 {% endblock %}
