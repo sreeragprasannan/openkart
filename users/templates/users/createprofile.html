@@ -1,0 +1,18 @@
+{% extends 'myapp/base.html' %}
+{% block  content %}
+<h1 class="text-2xl font-bold m-10">Create Profile</h1>
+<form class="w-2/5 shadow-md m-10 p-10" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-5">
+        <label class="block text-grey-700 text-sm font-bold mb-2 " for="">Contact Number</label>
+        <input class="appearance-none shadow border rounded-lg text-grey-800" placeholder="Contact Number" type="text" name="contact_number" id="contact_number">
+    </div>
+    <div class="mb-5">
+        <label class="block text-grey-700 text-sm font-bold mb-2 " for="">Upload profile image</label>
+        <input type="file" name="upload" id="upload">
+    </div>
+    <div class="mb-5">
+        <input class="btn btn-info" type="submit" accept="image/" name="Create" value="Create">
+    </div>
+    
+{% endblock %}

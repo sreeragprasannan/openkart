@@ -1,9 +1,15 @@
 {% extends 'myapp/base.html' %}
 {% block content %}
-<div class="card card-side bg-base-100 shadow-xl">
-    <figure><img src="{{profile.image.url}}" alt="loading..."></figure>
+<div class="card card-side bg-base-50 shadow-xl">
+    <div class="avatar">
+        <div class="w-16 rounded">
+          <img src="{{profile.image.url}}" alt="" />
+        </div>
+      </div>
+    <!-- <figure><img src="{{profile.image.url}}" alt="loading..."></figure> -->
     <div class="card-body">
-        <h2 class="card-title">{{user.username}}</h2>
+        <h1>{{user.username}}</h2>
+        <h2>{{user.contact_number}}</h2>
     </div>
 </div>
 
