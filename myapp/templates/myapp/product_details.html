@@ -1,27 +1,20 @@
 {% extends 'myapp/base.html' %}
 {% block content %}
 
-{% comment %} <div class="card w-50 center">
-    <img src="https://m.media-amazon.com/images/I/61IJBsHm97L._SL1500_.jpg" alt="{{p.name}}" style="width:400px">
-    <h1>{{p.name}}</h1>
-    <p class="price">₹ {{p.price}}</p>
-    <p>{{p.description}}</p>
-    <br>
-    <br>
-</div> {% endcomment %}
-<div class="card card-compact w-96 bg-base-100 shadow-xl">
-    <figure><img src="https://m.media-amazon.com/images/I/61IJBsHm97L._SL1500_.jpg" alt="{{p.name}}" style="width:400px"></figure>
-    <div class="card-body">
+ <div class="card w-96 bg-base-100 shadow-xl mt-7">
+    {% if p.image %}
+      <figure class="px-10 pt-10">
+         <img src="{{p.image.url}}" alt="Shoes" class="rounded-xl" />
+      </figure>
+    {% endif %}
+    <div class="card-body items-center text-center">
       <h2 class="card-title">{{p.name}}</h2>
       <p>{{p.description}}</p>
-      <div class="card-actions justify-end">
+      <a href="{% url 'users:sellerprofile' p.seller_name.id %}">Seller: {{p.seller_name}}</a>
+      <div class="card-actions">
         <button class="btn btn-primary">₹{{p.price}}</button>
       </div>
     </div>
   </div>
-
 {% endblock %}
-
-
-
 

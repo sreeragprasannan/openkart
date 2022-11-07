@@ -9,3 +9,4 @@ class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     image = models.ImageField(blank=True,upload_to='profile_pic')
     contact_number = models.CharField(max_length=15)
+    
