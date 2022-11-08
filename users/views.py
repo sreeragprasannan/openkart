@@ -20,7 +20,7 @@ def register(request):
     }
      
     return render(request, 'users/register.html', context=context)
-
+@login_required
 def profile(request):
     
     pro = Profile.objects.get(user=request.user)
@@ -45,8 +45,11 @@ def create_profile(request):
     
 def seller_profile(request,id):
     
-    seller = User.object.get(id=id)
-    # seller_profile = Profile.objects.get(user_id_exact = id)
-    context = {'seller': seller}
+    seller = User.objects.get(id=id)
+    profile = Profile.objects.get(user_id_exact = id)
+    context = {
+        'seller': seller,
+        'profile':profile
+               }
     
-    return render(request, 'users/sellerprofile.html',context=context)
+    return render(request, 'users/seller_profile.html',context=context)

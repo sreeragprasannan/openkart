@@ -10,10 +10,11 @@
     <div class="card-body items-center text-center">
       <h2 class="card-title">{{p.name}}</h2>
       <p>{{p.description}}</p>
-      <a href="{% url 'users:sellerprofile' p.seller_name.id %}">Seller: {{p.seller_name}}</a>
       <div class="card-actions">
         <button class="btn btn-primary">₹{{p.price}}</button>
       </div>
+      <p>Sold by : {{p.seller_name}}</p>
+      <a href="{% url 'users:sellerprofile' p.seller_name.id %}"><div class="text-sm"> Seller Details</div></a>
     </div>
   </div>
 {% endblock %}
