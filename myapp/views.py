@@ -3,8 +3,9 @@ from django.http import HttpResponse
 from myapp.models import Product
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-# Create your views here.
+from django.views.generic import ListView,TemplateView,DetailView,CreateView,DeleteView,UpdateView
 
+# Create your views here.
 
 def index(request):
 
@@ -18,6 +19,11 @@ def index(request):
 def new_one(request):
     return render(request, 'listing/new_one.html')
 
+class ProductListView(ListView):
+    model = Product
+    context_object_name = 'myapp/products.html'
+    template_name='products'
+
 @login_required
 def products(request):
 
@@ -25,6 +31,7 @@ def products(request):
     context = {'products': p}
 
     return render(request, 'myapp/products.html', context=context)
+
 
 
 def products_detail(request, id):
@@ -40,7 +47,8 @@ def add_products(request,):
         desc = request.POST.get('desc')
         image = request.FILES['upload']
 
-        p = Product(name=name, price=price, description=desc, image=image)
+        p = Product(name=name,price=price,description=desc,image=image)
+        p.seller_name = request.user
         p.save()
         
         return redirect('/myapp/products')

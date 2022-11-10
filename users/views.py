@@ -43,13 +43,17 @@ def create_profile(request):
     
     return render(request,'users/createprofile.html')
     
-def seller_profile(request,id):
-    
+
+def seller_profile(request, id):
+
     seller = User.objects.get(id=id)
-    profile = Profile.objects.get(user_id_exact = id)
+
+    profile = Profile.objects.get(user_id__exact = id)
+
     context = {
-        'seller': seller,
-        'profile':profile
-               }
-    
-    return render(request, 'users/seller_profile.html',context=context)
+        'seller' : seller,
+        'profile' : profile
+        }
+
+
+    return render(request, 'users/seller_profile.html', context=context)
