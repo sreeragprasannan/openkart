@@ -1,6 +1,7 @@
 
 from django.urls import path, include
-from .views import index,new_one,products,my_place,products_detail,add_products,update_products,delete_products,ProductListView
+from .views import index,products,products_detail,add_products,update_products,delete_products
+from .views import ProductListView,ProductDetailView,ProductsUpdateView,ProductCreateView,ProductDeleteView
 
 app_name='myapp'
 urlpatterns =[
@@ -9,9 +10,12 @@ urlpatterns =[
     # path('products/',products,name='products'),
     path('products/',ProductListView.as_view(),name='products'),
     # path('place/',my_place),
-    path('products/<int:id>/',products_detail,name='products_details'),
-    path('products/add',add_products,name='add_products'),
-    path('products/update/<int:id>',update_products,name='update_products'),
-    path('products/delete/<int:id>',delete_products,name='delete_products'),
+    path('products/<int:pk>/',ProductDetailView.as_view(),name='products_details'),
+    # path('products/add/',add_products,name='add_products'),
+    path('products/add/',ProductCreateView.as_view(),name='add_products'),
+    # path('products/update/<int:id>',update_products,name='update_products'),
+    path('products/update/<int:pk>',ProductsUpdateView.as_view(),name='update_products'),
+    # path('products/delete/<int:id>',delete_products,name='delete_products'),
+    path('products/delete/<int:pk>',ProductDeleteView.as_view(),name='delete_products'),
     
 ]
