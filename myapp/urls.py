@@ -1,6 +1,8 @@
 
 from django.urls import path, include
+# function based views
 from .views import index,products,products_detail,add_products,update_products,delete_products
+# class based view
 from .views import ProductListView,ProductDetailView,ProductsUpdateView,ProductCreateView,ProductDeleteView
 
 app_name='myapp'
